@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
      # Third party apps
+     # "django_extendsions",
 
 
     # myApps
@@ -47,6 +48,12 @@ INSTALLED_APPS = [
     "cart",
 
 ]
+
+if os.environ.get("DJANGO_DEBUG") == "True":
+    # Mert's Settings:
+    INSTALLED_APPS += [
+        "django_extensions",
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
