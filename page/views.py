@@ -23,13 +23,13 @@ def carousel_list(request):
     return render(request, "manage/carousel_list.html", context)
 
 def carousel_update(request, pk):
-        # Bu ismi oluşturun...
     context = dict()
         # kaft_clone/manage/carousel/1/edit
     # item = Carousel.objects.first()
     # context["form"] = CarouselModelForm(instance=item)
-    context = Carousel.objects.get(pk=pk)
-    return render(request, "manage/corousel_form.html", context)
+    item = Carousel.objects.get(pk=pk)
+    context["form"] = CarouselModelForm(instance=item)
+    return render(request, "manage/carousel_form.html", context)
 
 def carousel_create(request):
     context = dict()
@@ -49,6 +49,6 @@ def carousel_create(request):
             form.save()
 
         messages.success(request,"Bir şeyler eklendi ama ne oldu bilemiyorum")
-    return render(request, "manage/carousel_create.html", context)
+    return render(request, "manage/carousel_form.html", context)
 
 
